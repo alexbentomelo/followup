@@ -9,17 +9,48 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { Camera } from '@ionic-native/camera/ngx';
+
+import { Crop } from '@ionic-native/crop/ngx';
+
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+
+import { Device } from '@ionic-native/device/ngx';
+
+//******** Angularfire ********/
+import { AngularFireModule } from '@angular/fire';
+
+//******* firebase api key ********//
+import { environment } from '../environments/environment';
+
+//******* firebase api key ********//
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+//******* firebase firestore ********//
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+//******* firebase storage ********//
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
+    Crop,
+    Device,
+    WebView,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

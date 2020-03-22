@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Task-Ver/Atualizar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profile">
+  <ion-card class="ion-no-margin">
+    <ion-grid fixed class="ion-no-padding">
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+
+          <ion-list margin-bottom>
+    
+            <ion-item>
+              <p>Status da Tarefa: </p>
+              <ion-badge color="success">{{status}}</ion-badge>
+            </ion-item>
+            <ion-item>
+              <p>Alterar Status: </p>
+              <ion-select [(ngModel)]="status">
+                <ion-select-option value="IN PROGRESS">IN PROGRESS</ion-select-option>
+                <ion-select-option value="DONE">DONE</ion-select-option>
+                <ion-select-option value="SELECTED FOR DEV">SELECTED FOR DEV</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <p>Título da Tarefa: </p>
+              <ion-input inputmode="text" [(ngModel)]="titulo">{{titulo}}</ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Descrição</ion-label>
+              <ion-textarea [(ngModel)]="descricao" rows="3"></ion-textarea>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Data Entrega:</ion-label>
+                    <ion-datetime [(ngModel)]="dataSelecionada" min="2019-11" max="2021"
+                      displayFormat="DD MMM YY"
+                      monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez">{{dataSelecionada}}</ion-datetime>
+            </ion-item>
+
+
+          <ion-item>
+            <p color="dark" position="stacked">Membro da Squad:</p>
+            <ion-select [(ngModel)]="integrante">
+              <ion-select-option *ngFor="let integrante of integrantes">{{ integrante }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <p>Prioridade</p>
+            <ion-select placeholder="Escolha a Prioridade" [(ngModel)]="prioridade">
+              <ion-select-option value="Alta">Alta Prioridade</ion-select-option>
+              <ion-select-option value="Media">Média Prioridade</ion-select-option>
+              <ion-select-option value="Baixa">Baixa Prioridade</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <p>Peso da tarefa</p>
+            <ion-select placeholder="Escolha a Prioridade" [(ngModel)]="peso">
+              <ion-select-option value="10">10</ion-select-option>
+              <ion-select-option value="20">20</ion-select-option>
+              <ion-select-option value="30">30</ion-select-option>
+              <ion-select-option value="40">40</ion-select-option>
+              <ion-select-option value="50">50</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <p>Notificação</p>
+            <ion-select [(ngModel)]="notificacao">
+              <ion-select-option value="Habilitar">Habilitar</ion-select-option>
+              <ion-select-option value="Desabilitar">Desabilitar</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+
+          </ion-list>
+          <ion-grid fixed class="ion-no-padding">
+            <ion-row>
+              <ion-col size="12" style="text-align: center">
+                 <ion-button style="width:100px" fill="outline" (click)="alterarTask()">Atualizar</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
+  
+  <div padding>
+    <ion-text color="dark" class="ion-no-margin">
+     
+    </ion-text>
+  </div>
+</ion-content>
+

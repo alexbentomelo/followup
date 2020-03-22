@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> {{projectProfileArray.nome}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profile">
+  <ion-card class="ion-no-margin">
+    <ion-grid fixed class="ion-no-padding">
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-list margin-bottom>
+            <ion-list-header color="light">
+              <ion-label class="fw700">Acesse também:</ion-label>
+            </ion-list-header>
+            <ion-grid fixed class="ion-no-padding">
+              <ion-row>
+                <ion-col size="6" style="text-align: center">
+                   <ion-button routerLink="/list-tasks/{{projectID}}" style="width:100px" fill="outline">Backlog</ion-button>
+                </ion-col>
+                <ion-col  size="6" style="text-align: center">
+                   <ion-button style="width:100px"  fill="outline">Dashboard</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-list>
+      
+          <ion-list margin-bottom>
+            <ion-list-header color="light">
+              <ion-label class="fw700">Dados do Projeto</ion-label>
+            </ion-list-header>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">Nome:</ion-label>
+              <ion-input inputmode="text"> {{projectProfileArray.nome}} </ion-input>
+            </ion-item>
+    
+            <ion-item>
+              <ion-label color="dark" position="stacked">Team Líder:</ion-label>
+              <ion-input inputmode="text"> {{projectProfileArray.manager}}  </ion-input>
+            </ion-item>
+
+            <ion-item>
+            <ion-label color="dark" position="stacked">Responsável/Cliente:</ion-label>
+              <ion-input inputmode="text"> {{projectProfileArray.responsavel}}  </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">Data Início:</ion-label>
+                <ion-input inputmode="text"> {{projectProfileArray.startDate}}  </ion-input>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">Data Final:</ion-label>
+                <ion-input inputmode="text"> {{projectProfileArray.endDate}} </ion-input>
+            </ion-item>
+          </ion-list>
+
+          <ion-list>
+            <ion-list-header color="light">
+              <ion-label class="fw700">Squad Responsável</ion-label>
+            </ion-list-header>
+            <ion-item>
+              <ion-label color="dark" position="stacked">Integrantes</ion-label>
+                <ion-input inputmode="text"> {{projectProfileArray.integrantes}} </ion-input>
+            </ion-item>
+           
+          </ion-list>
+  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   
+  </ion-card>
+  
+  <div padding>
+    <ion-text color="dark" class="ion-no-margin">
+     
+    </ion-text>
+  </div>
+</ion-content>
+
+

@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profile">
+  <ion-card class="ion-no-margin">
+    <ion-card-content class="bg-profile">
+      <img *ngIf="this.image" [src]="this.image">
+      <h1 class="fw500">{{userArray.nome}}</h1>
+      <ion-button icon-left color="secondary" (click)="addImages($event,0)">
+        <ion-icon name="photos"></ion-icon> 
+        Imagem
+      </ion-button>
+    </ion-card-content>
+  
+    <ion-grid fixed class="ion-no-padding">
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+
+          <ion-list margin-bottom>
+            <ion-list-header color="light">
+              <ion-label class="fw700">Dados Pessoais</ion-label>
+            </ion-list-header>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">Nome:</ion-label>
+              <ion-input inputmode="text" [(ngModel)]="userArray.nome"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+              <ion-label color="dark" position="stacked">Email:</ion-label>
+              <ion-input inputmode="email" [(ngModel)]="userArray.email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+            <ion-label color="dark" position="stacked">Celular:</ion-label>
+              <ion-input inputmode="text" [(ngModel)]="userArray.celular"></ion-input>
+            </ion-item>
+          </ion-list>
+
+          <ion-list>
+            <ion-list-header color="light">
+              <ion-label class="fw700">Dados Profissionais</ion-label>
+            </ion-list-header>
+            <ion-item>
+              <ion-label color="dark" position="stacked">Departamento:</ion-label>
+              <ion-input inputmode="text" [(ngModel)]="userArray.departamento"></ion-input>
+             </ion-item>
+            <ion-item>
+             <ion-label color="dark" position="stacked">Cargo:</ion-label>
+             <ion-input inputmode="text" [(ngModel)]="userArray.cargo"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="dark" position="stacked">Líder:</ion-label>
+              <ion-input inputmode="text" [(ngModel)]="userArray.lider"></ion-input>
+             </ion-item>
+           
+          </ion-list>
+  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
+  
+  <div padding>
+    <ion-text color="dark" class="ion-no-margin">
+     
+    </ion-text>
+  </div>
+</ion-content>
+

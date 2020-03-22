@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Projetos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="animated fadeIn">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" margin-bottom>
+        <ion-card *ngIf="!projects.length" class="bg-white" margin-top>
+          <ion-card-content>
+            <p text-center>
+              <ion-text color="primary">Você ainda não tem nenhum projeto cadastrado!</ion-text>
+            </p>
+          </ion-card-content>
+        </ion-card>
+  
+        <ion-list *ngIf="projects.length">
+
+          <ion-item tappable routerLink="/project-profile/{{project.nome}}" *ngFor="let project of projects">
+            <ion-label>
+              <h2>
+                <ion-text color="primary">{{project.nome}}</ion-text>
+              </h2>
+              <p>Team Líder: {{project.manager}}</p>
+              <p>Responsável: {{project.responsavel}}</p>
+              <p>De: {{project.startDate}} ∙ Até:{{project.endDate}}</p>
+              <ion-badge color="success">Status: {{ project.status}}</ion-badge>
+            </ion-label>
+          </ion-item>
+
+        </ion-list>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click) = "nextPage()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
